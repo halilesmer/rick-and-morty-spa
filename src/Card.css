@@ -1,8 +1,9 @@
-.container .row{
-    display: flex;
-    justify-content: center;
-    flex-flow: wrap;
+.container .row {
+  display: flex;
+  justify-content: center;
+  flex-flow: wrap;
 }
 .container .row .col {
-    justify-content: center;
+  justify-content: center;
+  margin: 10px;
 }
