@@ -22,9 +22,7 @@ function App() {
 
   return (
     <Container>
-      <Row xs={1} md={2} className="g-4">
-          <Cards data={data} />
-      </Row>
+      <Cards data={data} />
     </Container>
   );
 }
