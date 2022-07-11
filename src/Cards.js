@@ -1,5 +1,6 @@
 import React from "react";
-import { Row, Col, Card, CardGroup } from "react-bootstrap";
+import { Row, Col, Card } from "react-bootstrap";
+import { FlipCard } from "./FlipCard";
 
 export const Cards = ({ data }) => {
   return (
@@ -8,21 +9,7 @@ export const Cards = ({ data }) => {
           return (
             <Col key={item.id}>
               <Card>
-                <div class="flip-card">
-                  <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                      <Card.Img
-                        className="card-image"
-                        variant="top"
-                        src={item.image}
-                      />
-                    </div>
-                    <div class="flip-card-back">
-                      <h1>{item.name}</h1>
-                      <button>Learn More</button>
-                    </div>
-                  </div>
-                </div>
+               <FlipCard item={item}/>
               </Card>
             </Col>
           );

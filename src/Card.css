@@ -16,6 +16,8 @@
   width: 300px;
   height: 300px;
   perspective: 1000px;
+  border: solid #A8014E;
+    border-radius: 5px;
 }
 
 .flip-card-inner {
@@ -49,7 +51,7 @@
     display: flex;
     justify-content: center;
     flex-flow: column;
-  background-color: #2980b9;
+  background-color: #A8014E;
   color: white;
   transform: rotateY(180deg);
   
