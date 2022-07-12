@@ -6,7 +6,7 @@ export const FlipCard = ({ item }) => {
   const [modal, setModal] = useState(false)
 
   const handleClose = (e) => {
-    console.log("e: ", e);
+    // console.log("e: ", e);
     setModal(false)
   };
   const handleShow = () => setModal(true);

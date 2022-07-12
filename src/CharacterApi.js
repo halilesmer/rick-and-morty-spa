@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { Cards } from "./Cards";
 
-export const CharacterApi = () => {
+export const CharacterApi = ({ searchedValue }) => {
   const [data, setData] = useState([]);
 
   const getData = async () => {
@@ -17,7 +17,7 @@ export const CharacterApi = () => {
 
   return (
     <>
-      <Cards data={data} />
+      <Cards data={data} searchedValue={searchedValue} />
     </>
   );
 };

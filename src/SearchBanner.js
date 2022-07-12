@@ -1,11 +1,10 @@
-import React, {useState} from 'react'
+import React from 'react'
 import './SearchBanner.css';
 import { InputGroup, FormControl } from "react-bootstrap";
 
 
-const SearchBanner = () => {
-const [searchedValue, setSearchedValue] = useState('');
-console.log("searchedValue: ", searchedValue);
+const SearchBanner = ({ searchedValue , onChange}) => {
+
 
 
     return (
@@ -18,7 +17,8 @@ console.log("searchedValue: ", searchedValue);
                         aria-label="Search"
                         aria-describedby="basic-addon2"
                         value={searchedValue}
-                        onChange={(e)=> setSearchedValue(e.currentTarget.value)}
+                        onChange={(e) => onChange(e)}
+                        // onChange={setValueHandle}
                     />
 
                 </InputGroup>
