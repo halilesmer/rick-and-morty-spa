@@ -57,11 +57,11 @@
   transform: rotateY(180deg);
   
 }
-.flip-card-back a {
+.flip-card-back button {
     background: transparent;
     border: none;
     cursor: pointer;
-        font-size: larger;
+        font-size: 1.5rem;
 
 }
 /* Card Flip with Text ends*/
