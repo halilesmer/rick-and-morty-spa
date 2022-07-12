@@ -2,9 +2,9 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import "./Card.css";
-import { Container, Row, Col, Card, Button, CardGroup } from "react-bootstrap";
-import { ApiData } from "./ApiData";
-import { LearnMoreModal } from "./LearnMoreModal";
+import { Container, } from "react-bootstrap";
+import { CharacterApi } from "./CharacterApi";
+import SearchBanner from "./SearchBanner";
 
 
 
@@ -14,7 +14,8 @@ function App() {
  
   return (
     <Container>
-      <ApiData />
+    <SearchBanner/>
+      <CharacterApi />
     </Container>
   );
 }

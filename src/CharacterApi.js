@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { Cards } from "./Cards";
 
-export const ApiData = () => {
+export const CharacterApi = () => {
   const [data, setData] = useState([]);
 
   const getData = async () => {

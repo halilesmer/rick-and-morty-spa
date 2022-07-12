@@ -1,0 +1,7 @@
+.searchBannerCon {
+    display: flex;
+    height: 4rem;
+    background: #A8014E;
+    justify-content: center;
+    margin-bottom: 2rem;
+}

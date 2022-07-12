@@ -1,27 +1,30 @@
 
 
-import React, {useEffect,  useState } from "react";
-import Modal from "react-bootstrap/Modal";
+// import React, {useEffect,  useState } from "react";
+import { Modal, } from "react-bootstrap";
+import './LearnMoreModal.css'
+export const LearnMoreModal = ({ modal, handleClose, item }) => {
 
-export const LearnMoreModal = ({ modal }) => {
-  // if I use directly in show state the props 'modal' it doesn't work. Why?
-  const [show, setShow] = useState(false);
-  
-  // const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
-  useEffect(() => { 
-    setShow(modal)
-  },[modal])
-  
+
   console.log("modal: ", modal);
-  console.log("show: ", show);
+  console.log("show: ", handleClose);
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal className="learnMoreModalCon"
+      show={modal}
+      onHide={(e) => handleClose(e)}
+      centered
+      onEscapeKeyDown={(e) => handleClose(e)}
+
+    >
       <Modal.Header closeButton>
-        <Modal.Title>Modal heading</Modal.Title>
+        <Modal.Title>{item.name}</Modal.Title>
       </Modal.Header>
-      <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-     
+      <Modal.Body>
+        <img src={item.image} alt={item.title} />
+      </Modal.Body>
+      <p>Species: {item.species}</p>
+      <p>Status: {item.status}</p>
+
     </Modal>
   );
 };

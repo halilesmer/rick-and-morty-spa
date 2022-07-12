@@ -1,16 +1,18 @@
-import React, {useState} from 'react'
-import {  Card,  } from "react-bootstrap";
+import React, { useState } from 'react'
+import { Card, } from "react-bootstrap";
 import { LearnMoreModal } from "./LearnMoreModal";
 
 export const FlipCard = ({ item }) => {
   const [modal, setModal] = useState(false)
-  
-  const handleClose = () => setModal(false);
+
+  const handleClose = (e) => {
+    console.log("e: ", e);
+    setModal(false)
+  };
   const handleShow = () => setModal(true);
-  
-  
-  
-  console.log("modal: ", modal);
+
+
+
   return (
     <>
       <div className="flip-card">
@@ -19,12 +21,12 @@ export const FlipCard = ({ item }) => {
             <Card.Img className="card-image" variant="top" src={item.image} />
           </div>
           <div className="flip-card-back">
-            <h1>{item.name}</h1>
+            <h4>{item.name}</h4>
             <button onClick={handleShow}>Learn More</button>
+            <LearnMoreModal item={item} handleClose={handleClose} modal={modal} />
           </div>
         </div>
       </div>
-      <LearnMoreModal modal={modal} />
     </>
   );
 }

@@ -4,7 +4,7 @@ import { FlipCard } from "./FlipCard";
 
 export const Cards = ({ data }) => {
   return (
-      <Row xs={1} md={2} className="g-4">
+      <Row xs={1} md={2} className="g-4 card-container">
         {data.map((item) => {
           return (
             <Col key={item.id} style={{width:'auto'}}>
@@ -19,23 +19,3 @@ export const Cards = ({ data }) => {
 };
 
 
-/* export const Cards = ({ data }) => {
-  return (
-      <Row xs={1} md={2} className="g-4">
-        {data.map((item) => {
-          return (
-            <Col key={item.id}>
-              <Card>
-                <Card.Img
-                  className="card-image"
-                  variant="top"
-                  src={item.image}
-                />
-              </Card>
-            </Col>
-          );
-        })}
-      </Row>
-  );
-};
- */

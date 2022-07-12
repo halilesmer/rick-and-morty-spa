@@ -1,0 +1,14 @@
+.learnMoreModalCon {
+    /* justify-content: center; */
+    flex-basis: min-content;
+    /* flex-flow: wrap; */
+    text-align: center;
+
+}
+.modal-header .btn-close {
+    padding: unset;
+    margin: unset;
+}
+.modal-title.h4 {
+    margin: auto;
+}
