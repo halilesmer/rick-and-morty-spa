@@ -15,7 +15,9 @@ export const ApiData = () => {
     getData();
   }, []);
 
-  console.log("data: ", data);
-
-  return <Cards data={data} />;
+  return (
+    <>
+      <Cards data={data} />
+    </>
+  );
 };

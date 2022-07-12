@@ -7,7 +7,7 @@ export const Cards = ({ data }) => {
       <Row xs={1} md={2} className="g-4">
         {data.map((item) => {
           return (
-            <Col key={item.id}>
+            <Col key={item.id} style={{width:'auto'}}>
               <Card>
                <FlipCard item={item}/>
               </Card>

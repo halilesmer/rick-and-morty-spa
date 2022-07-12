@@ -1,12 +1,13 @@
-.container .row {
-  display: flex;
+ .container div:first-child {
+  /* display: flex; */
   justify-content: center;
-  flex-flow: wrap;
+  /* flex-flow: wrap; */
 }
+/*
 .container .row .col {
   justify-content: center;
   margin: 10px;
-}
+} */
 
 
 /* Card Flip with Text starts*/
@@ -56,7 +57,7 @@
   transform: rotateY(180deg);
   
 }
-.flip-card-back button {
+.flip-card-back a {
     background: transparent;
     border: none;
     cursor: pointer;
