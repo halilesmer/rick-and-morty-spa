@@ -6,8 +6,7 @@ import './LearnMoreModal.css'
 export const LearnMoreModal = ({ modal, handleClose, item }) => {
 
 
-  console.log("modal: ", modal);
-  console.log("show: ", handleClose);
+ 
   return (
     <Modal className="learnMoreModalCon"
       show={modal}

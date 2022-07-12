@@ -3,5 +3,7 @@
     height: 4rem;
     background: #A8014E;
     justify-content: center;
+    align-items: center;
     margin-bottom: 2rem;
+    padding: 2.4rem 0 2.4rem 0;
 }
