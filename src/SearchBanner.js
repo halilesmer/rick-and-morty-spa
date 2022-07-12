@@ -3,7 +3,7 @@ import './SearchBanner.css';
 import { InputGroup, FormControl } from "react-bootstrap";
 
 
-const SearchBanner = ({ searchedValue , onChange}) => {
+const SearchBanner = ({ searchQuery, onChange}) => {
 
 
 
@@ -16,7 +16,7 @@ const SearchBanner = ({ searchedValue , onChange}) => {
                         placeholder="Search characters"
                         aria-label="Search"
                         aria-describedby="basic-addon2"
-                        value={searchedValue}
+                        value={searchQuery}
                         onChange={(e) => onChange(e)}
                         // onChange={setValueHandle}
                     />

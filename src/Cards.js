@@ -2,30 +2,29 @@ import React, { useEffect, useState } from "react";
 import { Row, Col, Card } from "react-bootstrap";
 import { FlipCard } from "./FlipCard";
 
-export const Cards = ({ data, searchedValue }) => {
-  console.log("searchedValue: ", searchedValue);
+export const Cards = ({ data, searchQuery }) => {
+  console.log("searchQuery: ", searchQuery);
 
-  const [searchedData, setSearchedData] = useState();
 
   // useEffect(() => {
-  //   if (searchedValue==='') {
+  //   if (searchQuery==='') {
   //     setSearchedData(data)
   //   }else{
-  //     const filter = data.filter(character => character.name.toLowerCase().includes(searchedValue.toLowerCase()))
+  //     const filter = data.filter(character => character.name.toLowerCase().includes(searchQuery.toLowerCase()))
   //     console.log("filter: ", filter);
   //   }
-  // }, [searchedValue])
-  // const filter = data.filter(character => character.name.toLowerCase().includes(searchedValue.toLowerCase()))
+  // }, [searchQuery])
+  // const filter = data.filter(character => character.name.toLowerCase().includes(searchQuery.toLowerCase()))
 
 
-  // setSearchedData(data.filter(character => character.name.toLowerCase().includes(searchedValue.toLowerCase())))
+  // setSearchedData(data.filter(character => character.name.toLowerCase().includes(searchQuery.toLowerCase())))
 
 
   console.log("searchedData: ",);
   return (
     <Row xs={1} md={2} className="g-4 card-container">
       {data && data.map((item) => {
-        return (item.name.toLowerCase().includes(searchedValue.trim().toLowerCase()) &&
+        return (item.name.toLowerCase().includes(searchQuery.trim().toLowerCase()) &&
           <Col key={item.id} style={{ width: 'auto' }}>
             <Card>
               <FlipCard item={item} />
@@ -39,18 +38,3 @@ export const Cards = ({ data, searchedValue }) => {
 };
 
 
-/*   console.log("searchedData: ", searchedData);
-  return (
-    <Row xs={1} md={2} className="g-4 card-container">
-      {data && data.map((item) => {
-        return (
-          <Col key={item.id} style={{ width: 'auto' }}>
-            <Card>
-              <FlipCard item={item} />
-            </Card>
-          </Col>
-        );
-      })}
-    </Row>
-  );
-}; */

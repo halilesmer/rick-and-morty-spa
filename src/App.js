@@ -11,7 +11,7 @@ import SearchBanner from "./SearchBanner";
 
 
 function App() {
-  const [searchedValue, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
 
 const onChange=(e)=> {
   setSearchQuery(e.currentTarget.value)
@@ -19,8 +19,8 @@ const onChange=(e)=> {
 
   return (
     <Container>
-    <SearchBanner searchedValue={searchedValue} onChange={onChange}/>
-      <CharacterApi searchedValue={searchedValue} />
+    <SearchBanner searchQuery={searchQuery} onChange={onChange}/>
+      <CharacterApi searchQuery={searchQuery} />
     </Container>
   );
 }
