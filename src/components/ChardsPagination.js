@@ -1,10 +1,10 @@
 import Pagination from "react-bootstrap/Pagination";
 
-const ChardsPagination =({next})=> {
+const ChardsPagination =({next, prev,first,last})=> {
   return (
     <Pagination>
-      <Pagination.First />
-      <Pagination.Prev />
+      <Pagination.First onClick={first} />
+      <Pagination.Prev onClick={prev} />
       <Pagination.Item>{1}</Pagination.Item>
       <Pagination.Ellipsis />
 
@@ -16,8 +16,8 @@ const ChardsPagination =({next})=> {
 
       <Pagination.Ellipsis />
       <Pagination.Item>{20}</Pagination.Item>
-      <Pagination.Next onClick={next}/>
-      <Pagination.Last />
+      <Pagination.Next onClick={next} />
+      <Pagination.Last onClick={last} />
     </Pagination>
   );
 }
