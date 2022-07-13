@@ -8,9 +8,6 @@ import SearchBanner from "./views/SearchBanner";
 import "./views/SearchBanner.css";
 
 
-
-
-
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
 

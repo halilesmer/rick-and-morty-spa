@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Row } from "react-bootstrap";
+import {  Row } from "react-bootstrap";
 
 import { Cards } from "../Cards";
+import ChardsPagination from "../components/ChardsPagination";
+
 
 export const CharacterApi = ({ searchQuery }) => {
   const [spinner, setSpinner] = useState(true);
@@ -32,28 +34,30 @@ const filteredCharacter = data.filter((item) =>
   // console.log("data: ", data);
   return (
     <>
+      <ChardsPagination />
       {filteredCharacter && (
         <Row xs={1} md={2} className="g-4 card-container">
           {filteredCharacter.map((item) => {
-              return (
-                item.name
-                  .toLowerCase()
-                  .includes(searchQuery.trim().toLowerCase()) && (
-                  <Cards
-                    key={item.id}
-                    data={item}
-                    searchQuery={searchQuery}
-                    spinner={spinner}
-                  />
-                )
-              );
-            })}
+            return (
+              item.name
+                .toLowerCase()
+                .includes(searchQuery.trim().toLowerCase()) && (
+                <Cards
+                  key={item.id}
+                  data={item}
+                  searchQuery={searchQuery}
+                  spinner={spinner}
+                />
+              )
+            );
+          })}
         </Row>
-      ) 
-    }
-       { filteredCharacter.length <1 && ( <div className="searchResultAlert">
+      )}
+      {filteredCharacter.length < 1 && (
+        <div className="searchResultAlert">
           "No results found. Please try another search"
-        </div>)}
+        </div>
+      )}
     </>
   );
 };
