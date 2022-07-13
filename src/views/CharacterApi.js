@@ -28,7 +28,7 @@ export const CharacterApi = ({ searchQuery }) => {
     
     useEffect(() => {
       getData();
-      
+
     }, [count]);
     
     const filteredCharacter = data.filter((item) =>
@@ -45,14 +45,17 @@ export const CharacterApi = ({ searchQuery }) => {
     const last = () => setCount(pagiData.info.pages);
     const first = () => setCount(pagiData.info.pages - (pagiData.info.pages - 1));
     
-    /*  */
+  const handlePageOnclick =(e)=>{
+    console.log('e', e)
+   setCount(e)
+  }
     
     console.log("pagiData: ", pagiData);
 
-  console.log("data: ", data);
   return (
     <>
       <CardsPagination
+        handlePageOnclick={handlePageOnclick}
         pagiData={pagiData} next={next} prev={prev} last={last} 
         first={first}
         count={count} />
