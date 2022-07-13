@@ -4,8 +4,6 @@
 import { Modal, } from "react-bootstrap";
 import './LearnMoreModal.css'
 export const LearnMoreModal = ({ modal, handleClose, item }) => {
-
-
  
   return (
     <Modal className="learnMoreModalCon"
@@ -24,6 +22,9 @@ export const LearnMoreModal = ({ modal, handleClose, item }) => {
       <p>Species: {item.species}</p>
       <p>Status: {item.status}</p>
 
+      <button className="modalCloseBtn"
+      onClick={handleClose}>Close</button>
     </Modal>
+
   );
 };

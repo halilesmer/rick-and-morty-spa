@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Row, Col, Card } from "react-bootstrap";
 import { FlipCard } from "./FlipCard";
 
@@ -18,16 +18,8 @@ export const Cards = ({ data, searchQuery }) => {
   );
   console.log("filter: ", filteredData);
 
-  // setSearchedData(data.filter(character => character.name.toLowerCase().includes(searchQuery.toLowerCase())))
-
   return (
     <Row xs={1} md={2} className="g-4 card-container">
-      {filteredData.length < 1 && (
-        <div className="searchResultAlert">
-          "No results found. Please try another search"
-        </div>
-      )}
-
       {filteredData &&
         filteredData.map((item) => {
           return (
@@ -42,6 +34,11 @@ export const Cards = ({ data, searchQuery }) => {
             )
           );
         })}
+      {!filteredData && (
+        <div className="searchResultAlert">
+          "No results found. Please try another search"
+        </div>
+      )}
     </Row>
   );
 };

@@ -12,3 +12,17 @@
 .modal-title.h4 {
     margin: auto;
 }
+.modalCloseBtn{
+    background: rgb(168, 0, 78);
+    transition-duration: 1s;
+    width: fit-content;
+    padding: 0.5rem;
+    border-radius: 8px;
+    margin: auto;
+    font-size: x-large;
+}
+.modalCloseBtn:hover{
+    background: #f0f0f08f;
+    transition-duration: 0.4s;
+
+}
