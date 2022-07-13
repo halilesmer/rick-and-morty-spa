@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
 
-import { Cards } from "./Cards";
+import { Cards } from "../Cards";
 
 export const CharacterApi = ({ searchQuery }) => {
   const [spinner, setSpinner] = useState(true);

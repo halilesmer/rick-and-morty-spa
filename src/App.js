@@ -3,8 +3,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import "./Card.css";
 import { Container, } from "react-bootstrap";
-import { CharacterApi } from "./CharacterApi";
-import SearchBanner from "./SearchBanner";
+import { CharacterApi } from "./views/CharacterApi";
+import SearchBanner from "./views/SearchBanner";
+import "./views/SearchBanner.css";
 
 
 

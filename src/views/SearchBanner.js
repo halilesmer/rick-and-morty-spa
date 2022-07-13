@@ -1,5 +1,4 @@
 import React from 'react'
-import './SearchBanner.css';
 import { InputGroup, FormControl } from "react-bootstrap";
 
 
