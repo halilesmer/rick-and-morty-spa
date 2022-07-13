@@ -5,7 +5,6 @@ import { FlipCard } from "./FlipCard";
 export const Cards = ({ data, searchQuery }) => {
   console.log("searchQuery: ", searchQuery);
 
-
   // useEffect(() => {
   //   if (searchQuery==='') {
   //     setSearchedData(data)
@@ -14,16 +13,20 @@ export const Cards = ({ data, searchQuery }) => {
   //     console.log("filter: ", filter);
   //   }
   // }, [searchQuery])
-   const filteredData = data.filter(character => character.name.toLowerCase().includes(searchQuery.toLowerCase()))
-   console.log("filter: ", filteredData);
-
+  const filteredData = data.filter((character) =>
+    character.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+  console.log("filter: ", filteredData);
 
   // setSearchedData(data.filter(character => character.name.toLowerCase().includes(searchQuery.toLowerCase())))
 
-
   return (
     <Row xs={1} md={2} className="g-4 card-container">
-      
+      {filteredData.length < 1 && (
+        <div className="searchResultAlert">
+          "No results found. Please try another search"
+        </div>
+      )}
 
       {filteredData &&
         filteredData.map((item) => {
@@ -42,5 +45,3 @@ export const Cards = ({ data, searchQuery }) => {
     </Row>
   );
 };
-
-
