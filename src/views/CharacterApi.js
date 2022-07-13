@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
-
 import Cards from "../components/Cards";
 import CardsPagination from "../components/CardsPagination";
+import alertImage from '../assets/alert.webp'
 
 export const CharacterApi = ({ searchQuery }) => {
   const [spinner, setSpinner] = useState(true);
@@ -80,6 +80,7 @@ export const CharacterApi = ({ searchQuery }) => {
       {filteredCharacter.length < 1 && (
         <div className="searchResultAlert">
           "No results found. Please try another search"
+          <img src={alertImage} alt="Jerry's Mytholog" width={300}/>
         </div>
       )}
     </>
