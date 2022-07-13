@@ -4,38 +4,37 @@ import { Row } from "react-bootstrap";
 import { Cards } from "./Cards";
 
 export const CharacterApi = ({ searchQuery }) => {
-  const [data, setData] = useState([]);
   const [spinner, setSpinner] = useState(true);
-  const [filteredData, setFilteredData] = useState();
+  const [data, setData] = useState([])
+// const [filteredCharacter, setFilteredCharacter] = useState([])
 
-  const getData = async () => {
-    // setSpinner(true)
-    const response = await fetch(`https://rickandmortyapi.com/api/character/`);
-    const data = await response.json();
-    setData(data.results);
-    setSpinner(false);
 
-    // const filter = data && data.filter(item => item.name.toLowerCase().includes(searchQuery.trim().toLowerCase()))
+const getData = async () => {
+  const response = await fetch(`https://rickandmortyapi.com/api/character/`);
+  const data = await response.json();
+  // setFilteredCharacter(data.results);
+  setData(data.results);
 
-    // console.log("filter: ", filter);
-  };
+  setSpinner(false);
+  
 
-  useEffect(() => {
-    getData();
-  }, []);
+};
 
-  const filter =data && data.filter((item) =>
-      item.name.toLowerCase().includes(searchQuery.trim().toLowerCase())
-    );
+useEffect(() => {
+  getData();
+}, []);
 
-  console.log("filter: ", filter);
+const filteredCharacter = data.filter((item) =>
+  item.name.toLowerCase().includes(searchQuery.trim().toLowerCase())
+);
+
+  
   // console.log("data: ", data);
-  console.log("data: ", data);
   return (
     <>
-      {filter.length >0 && (
+      {filteredCharacter && (
         <Row xs={1} md={2} className="g-4 card-container">
-          {filter.map((item) => {
+          {filteredCharacter.map((item) => {
               return (
                 item.name
                   .toLowerCase()
@@ -52,7 +51,7 @@ export const CharacterApi = ({ searchQuery }) => {
         </Row>
       ) 
     }
-       { filter.length <1 && ( <div className="searchResultAlert">
+       { filteredCharacter.length <1 && ( <div className="searchResultAlert">
           "No results found. Please try another search"
         </div>)}
     </>

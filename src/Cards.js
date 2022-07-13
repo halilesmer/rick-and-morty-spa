@@ -3,8 +3,7 @@ import { Col, Card, Spinner } from "react-bootstrap";
 import { FlipCard } from "./FlipCard";
 
 export const Cards = ({ data, searchQuery, spinner }) => {
-  console.log("spinner: ", spinner);
-  console.log("searchQuery: ", searchQuery);
+
 
   // useEffect(() => {
   //   if (searchQuery==='') {
