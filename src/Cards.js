@@ -14,25 +14,31 @@ export const Cards = ({ data, searchQuery }) => {
   //     console.log("filter: ", filter);
   //   }
   // }, [searchQuery])
-  // const filter = data.filter(character => character.name.toLowerCase().includes(searchQuery.toLowerCase()))
+   const filteredData = data.filter(character => character.name.toLowerCase().includes(searchQuery.toLowerCase()))
+   console.log("filter: ", filteredData);
 
 
   // setSearchedData(data.filter(character => character.name.toLowerCase().includes(searchQuery.toLowerCase())))
 
 
-  console.log("searchedData: ",);
   return (
     <Row xs={1} md={2} className="g-4 card-container">
-      {data && data.map((item) => {
-        return (item.name.toLowerCase().includes(searchQuery.trim().toLowerCase()) &&
-          <Col key={item.id} style={{ width: 'auto' }}>
-            <Card>
-              <FlipCard item={item} />
-            </Card>
-          </Col>
+      
 
-        )
-      })}
+      {filteredData &&
+        filteredData.map((item) => {
+          return (
+            item.name
+              .toLowerCase()
+              .includes(searchQuery.trim().toLowerCase()) && (
+              <Col key={item.id} style={{ width: "auto" }}>
+                <Card>
+                  <FlipCard item={item} />
+                </Card>
+              </Col>
+            )
+          );
+        })}
     </Row>
   );
 };
