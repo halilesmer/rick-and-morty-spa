@@ -1,8 +1,8 @@
 import React from "react";
 import { Col, Card, Spinner } from "react-bootstrap";
-import { FlipCard } from "./FlipCard";
+import FlipCard  from "./FlipCard";
 
-export const Cards = ({ data, searchQuery, spinner }) => {
+ const Cards = ({ data, searchQuery, spinner }) => {
 
 
   // useEffect(() => {
@@ -31,3 +31,4 @@ export const Cards = ({ data, searchQuery, spinner }) => {
     </>
   );
 };
+export default Cards;

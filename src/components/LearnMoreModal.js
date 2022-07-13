@@ -3,7 +3,7 @@
 // import React, {useEffect,  useState } from "react";
 import { Modal, } from "react-bootstrap";
 import './LearnMoreModal.css'
-export const LearnMoreModal = ({ modal, handleClose, item }) => {
+ const LearnMoreModal = ({ modal, handleClose, item }) => {
  
   return (
     <Modal className="learnMoreModalCon"
@@ -28,3 +28,4 @@ export const LearnMoreModal = ({ modal, handleClose, item }) => {
 
   );
 };
+export default LearnMoreModal;

@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import "./Card.css";
+import "./components/Cards.css";
 import { Container, } from "react-bootstrap";
 import { CharacterApi } from "./views/CharacterApi";
 import SearchBanner from "./views/SearchBanner";

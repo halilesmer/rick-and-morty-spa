@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Card, } from "react-bootstrap";
-import { LearnMoreModal } from "./LearnMoreModal";
+import LearnMoreModal  from "./LearnMoreModal";
 
-export const FlipCard = ({ item }) => {
+ const FlipCard = ({ item }) => {
   const [modal, setModal] = useState(false)
 
   const handleClose = (e) => {
@@ -30,3 +30,4 @@ export const FlipCard = ({ item }) => {
     </>
   );
 }
+export default FlipCard;
