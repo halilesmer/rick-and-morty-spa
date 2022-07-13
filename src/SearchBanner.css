@@ -1,15 +1,26 @@
 .searchBannerCon {
-    display: flex;
-    height: 4rem;
-    background: #A8014E;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2rem;
-    padding: 2.4rem 0 2.4rem 0;
+  display: flex;
+  height: 4rem;
+  background: #a8014e;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 2.4rem 0 2.4rem 0;
+}
+#searchInput {
+  width: 200px;
+  transition-property: width;
+  transition-duration: 1s;
 }
 #searchInput::placeholder {
-    color: #d5b4b4;
-    font-size: large;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    opacity: 1;
+  color: #d5b4b4;
+  font-size: large;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  opacity: 1;
+}
+
+#searchInput:focus {
+  width: 30rem;
+  transition-property: width;
+  transition-duration: 1s;
 }
