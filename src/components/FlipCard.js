@@ -6,7 +6,7 @@ import LearnMoreModal  from "./LearnMoreModal";
   const [modal, setModal] = useState(false)
 
   const handleClose = (e) => {
-    console.log("e: ", e.target.className);
+    // console.log("e: ", e.target.className);
     setModal(false)
   };
   const handleShow = () => setModal(true);

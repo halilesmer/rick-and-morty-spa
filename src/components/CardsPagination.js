@@ -3,7 +3,6 @@ import './CardsPagination.css';
 
 const CardsPagination = ({ handlePageOnclick, pagiData, next, prev, first, last, count }) => {
   const totalPages = pagiData && pagiData.info.pages;
-  const currentPage = count;
 
   console.log("totalPages: ", totalPages);
 
