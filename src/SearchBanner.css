@@ -7,3 +7,9 @@
     margin-bottom: 2rem;
     padding: 2.4rem 0 2.4rem 0;
 }
+#searchInput::placeholder {
+    color: #d5b4b4;
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    opacity: 1;
+}

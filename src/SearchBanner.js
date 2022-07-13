@@ -18,6 +18,7 @@ const SearchBanner = ({ searchQuery, onChange}) => {
                         aria-describedby="basic-addon2"
                         value={searchQuery}
                         onChange={(e) => onChange(e)}
+                        id='searchInput'
                         // onChange={setValueHandle}
                     />
 

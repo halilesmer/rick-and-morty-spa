@@ -16,7 +16,7 @@ export const Cards = ({ data, searchQuery }) => {
   const filteredData = data.filter((character) =>
     character.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
-  console.log("filter: ", filteredData);
+
 
   return (
     <Row xs={1} md={2} className="g-4 card-container">
@@ -34,7 +34,7 @@ export const Cards = ({ data, searchQuery }) => {
             )
           );
         })}
-      {!filteredData && (
+      {filteredData.length <1 && (
         <div className="searchResultAlert">
           "No results found. Please try another search"
         </div>
