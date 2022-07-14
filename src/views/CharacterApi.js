@@ -117,7 +117,7 @@ export const CharacterApi = ({ searchQuery }) => {
                 ))}
               {filteredCharacter.length < 1 && (
                 <div className="searchResultAlert">
-                  "No results found. Please try another search"
+                  "I'm sorry. I was not able to find a match."
                   <img src={alertImage} alt="Jerry's Mytholog" width={300} />
                 </div>
               )}
