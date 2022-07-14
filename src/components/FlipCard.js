@@ -23,10 +23,10 @@ import LearnMoreModal  from "./LearnMoreModal";
           <div className="flip-card-back">
             <h4>{item.name}</h4>
             <button onClick={handleShow}>Learn More</button>
-            <LearnMoreModal item={item} handleClose={handleClose} modal={modal} />
           </div>
         </div>
       </div>
+      <LearnMoreModal item={item} handleClose={handleClose} modal={modal} />
     </>
   );
 }

@@ -1,10 +1,8 @@
 import React from "react";
 import { Col, Card, Spinner } from "react-bootstrap";
-import FlipCard  from "./FlipCard";
+import FlipCard from "./FlipCard";
 
- const Cards = ({ data, searchQuery, spinner }) => {
-
-
+const Cards = ({ data, searchQuery, spinner }) => {
   // useEffect(() => {
   //   if (searchQuery==='') {
   //     setSearchedData(data)
@@ -19,8 +17,6 @@ import FlipCard  from "./FlipCard";
 
   return (
     <>
-      {spinner === true && <Spinner animation="border" variant="danger" />}
-
       {data && (
         <Col style={{ width: "auto" }}>
           <Card>
