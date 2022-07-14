@@ -18,7 +18,7 @@ const CardsPagination = ({ handlePageOnclick, pagiData, next, prev, first, last,
       >
         {count < 4 ? '-' : totalPages - (pagiData.info.pages - 1)}
       </Pagination.Item>
-      <Pagination.Ellipsis />
+      <Pagination.Ellipsis disabled/>
 
       <Pagination.Item 
       disabled={count <= 2}
@@ -68,7 +68,7 @@ const CardsPagination = ({ handlePageOnclick, pagiData, next, prev, first, last,
             count + 2}
       </Pagination.Item>
 
-      <Pagination.Ellipsis />
+      <Pagination.Ellipsis disabled/>
 
       <Pagination.Item
         disabled={count > (totalPages - 3)}
