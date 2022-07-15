@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Row, Spinner } from "react-bootstrap";
+import { Container, Row, Spinner } from "react-bootstrap";
 import Cards from "../components/Cards";
 import CardsPagination from "../components/CardsPagination";
 import alertImage from "../assets/alert.webp";
@@ -54,17 +54,9 @@ export const CharacterApi = ({ searchQuery }) => {
     setCount(e);
   };
   
-  // const testFilter = filteredCharacter.map((item) => {
-    //   return item.name
-    //     .trim()
-    //     .toLowerCase()
-    //     .includes(searchQueryTrimmed);
-    //   })
-    //   console.log("testFilter: ", testFilter);
-    
-    //   console.log("pagiData: ", pagiData);
-    
-    // console.log("searchQueryTrimmed: ", searchQueryTrimmed);
+  const testresize = window.innerWidth < 1200;
+  console.log("testresize: ", testresize);
+
     console.log("filteredCharacter: ", filteredCharacter);
 
   return (
@@ -80,12 +72,11 @@ export const CharacterApi = ({ searchQuery }) => {
       />
 
       {spinner ? (
-        <div
+        <Container
           style={{
             display: "flex",
             height: "80vh",
             justifyContent: "center",
-            margin: "auto",
           }}
         >
           <Spinner
@@ -98,7 +89,7 @@ export const CharacterApi = ({ searchQuery }) => {
             animation="border"
             variant="danger"
           />
-        </div>
+        </Container>
       ) : (
         <>
           {data && (
