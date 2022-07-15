@@ -35,11 +35,11 @@ export const CharacterApi = ({ searchQuery }) => {
   }, [count]);
 
   const filteredCharacter = data.filter((item) =>
-    item.name.toLowerCase().includes(searchQueryTrimmed)
+  item.name.toLowerCase().includes(searchQueryTrimmed)
   );
-
+  
   const next = () =>
-    count < pagiData.info.pages && setCount((prev) => prev + 1);
+  count < pagiData.info.pages && setCount((prev) => prev + 1);
 
   const prev = () => {
     if (count > 1) {
@@ -48,23 +48,24 @@ export const CharacterApi = ({ searchQuery }) => {
   };
   const last = () => setCount(pagiData.info.pages);
   const first = () => setCount(pagiData.info.pages - (pagiData.info.pages - 1));
-
+  
   const handlePageOnclick = (e) => {
     console.log("e", e);
     setCount(e);
   };
-
+  
   // const testFilter = filteredCharacter.map((item) => {
-  //   return item.name
-  //     .trim()
-  //     .toLowerCase()
-  //     .includes(searchQueryTrimmed);
-  //   })
-  //   console.log("testFilter: ", testFilter);
-
-  //   console.log("pagiData: ", pagiData);
-
-  // console.log("searchQueryTrimmed: ", searchQueryTrimmed);
+    //   return item.name
+    //     .trim()
+    //     .toLowerCase()
+    //     .includes(searchQueryTrimmed);
+    //   })
+    //   console.log("testFilter: ", testFilter);
+    
+    //   console.log("pagiData: ", pagiData);
+    
+    // console.log("searchQueryTrimmed: ", searchQueryTrimmed);
+    console.log("filteredCharacter: ", filteredCharacter);
 
   return (
     <>
@@ -82,7 +83,6 @@ export const CharacterApi = ({ searchQuery }) => {
         <div
           style={{
             display: "flex",
-            width: "80vw",
             height: "80vh",
             justifyContent: "center",
             margin: "auto",
