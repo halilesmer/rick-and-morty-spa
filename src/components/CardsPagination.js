@@ -11,31 +11,24 @@ const CardsPagination = ({
   last,
   count,
 }) => {
-  const [resize, setResize] = useState();
-
   const totalPages = pagiData && pagiData.info.pages;
 
-  useEffect(() => {
-    window.addEventListener(
-      "resize",
-      () => {
-        const size = window.innerWidth;
-        if (size < 500 ){
-          setResize('sm')
-        } else if (size < 1000) {
-          setResize("");
-        } else {
-          setResize("lg");
-        }
-      },
-      false
-    );
+  const initialWinSize = window.innerWidth;
+  console.log("siz2: ", initialWinSize);
+  const [resize, setResize] = useState(initialWinSize);
 
-    // window.innerWidth < 1200 ?  setSpinnerSize("sm") : setSpinnerSize("lg");
-  });
+/* set send to state the window size if changed */
+  window.addEventListener(
+    "resize",
+    () => {
+      const changedWindowSize = window.innerWidth;
+      setResize(changedWindowSize);
+    },
+    false
+  );
 
   return (
-    <Pagination size={resize}>
+    <Pagination size={(resize < 500 ? "sm" : "") || (resize > 1000 && "lg")}>
       <Pagination.First disabled={count === 1} onClick={first} />
       <Pagination.Prev disabled={count === 1} onClick={prev} />
       <Pagination.Item

@@ -9,21 +9,18 @@ export const CharacterApi = ({ searchQuery }) => {
   const [data, setData] = useState([]);
   const [pagiData, setPagiData] = useState("");
   const searchQueryTrimmed = searchQuery
-    .trim()
-    .replace(/  +/g, " ")
-    .toLowerCase();
-  // const [filteredCharacter, setFilteredCharacter] = useState([])
-  const [url, setUrl] = useState("https://rickandmortyapi.com/api/character/");
+  .trim()
+  .replace(/  +/g, " ")
+  .toLowerCase();
   const [count, setCount] = useState(1);
+  
 
   const getData = async () => {
     setSpinner(true);
     const response = await fetch(
       `https://rickandmortyapi.com/api/character/?page=${count}`
     );
-    // const response = await fetch(`https://rickandmortyapi.com/api/character/`);
     const data = await response.json();
-    // setFilteredCharacter(data.results);
     setData(data.results);
     setPagiData(data);
 
@@ -33,6 +30,9 @@ export const CharacterApi = ({ searchQuery }) => {
   useEffect(() => {
     getData();
   }, [count]);
+
+ 
+
 
   const filteredCharacter = data.filter((item) =>
   item.name.toLowerCase().includes(searchQueryTrimmed)
@@ -53,11 +53,7 @@ export const CharacterApi = ({ searchQuery }) => {
     console.log("e", e);
     setCount(e);
   };
-  
-  const testresize = window.innerWidth < 1200;
-  console.log("testresize: ", testresize);
 
-    console.log("filteredCharacter: ", filteredCharacter);
 
   return (
     <>
