@@ -9,11 +9,12 @@ const SearchBanner = ({ searchQuery, onChange}) => {
     return (
       <div className="searchBannerCon">
         <div className="searchBar">
-          <div className='titelDiv'>
-            <p className='banner-title'>Rick and Morty</p>
+          <div className="titelDiv">
+            <p className="banner-title">Rick and Morty</p>
           </div>
           <InputGroup className="col-6">
             <FormControl
+              autoFocus
               style={{ background: "#A8014E" }}
               placeholder="Search characters"
               aria-label="Search"
