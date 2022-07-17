@@ -22,6 +22,7 @@ const SearchBanner = ({ searchQuery, onChange}) => {
               value={searchQuery}
               onChange={(e) => onChange(e)}
               id="searchInput"
+              type='search'
               // onChange={setValueHandle}
             />
           </InputGroup>
