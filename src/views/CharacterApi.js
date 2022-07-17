@@ -12,13 +12,13 @@ export const CharacterApi = ({ searchQuery }) => {
   .trim()
   .replace(/  +/g, " ")
   .toLowerCase();
-  const [count, setCount] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
   
 
   const getData = async () => {
     setSpinner(true);
     const response = await fetch(
-      `https://rickandmortyapi.com/api/character/?page=${count}`
+      `https://rickandmortyapi.com/api/character/?page=${currentPage}`
     );
     const data = await response.json();
     setData(data.results);
@@ -29,7 +29,7 @@ export const CharacterApi = ({ searchQuery }) => {
 
   useEffect(() => {
     getData();
-  }, [count]);
+  }, [currentPage]);
 
  
 
@@ -39,19 +39,19 @@ export const CharacterApi = ({ searchQuery }) => {
   );
   
   const next = () =>
-  count < pagiData.info.pages && setCount((prev) => prev + 1);
+  currentPage < pagiData.info.pages && setCurrentPage((prev) => prev + 1);
 
   const prev = () => {
-    if (count > 1) {
-      setCount((prev) => prev - 1);
+    if (currentPage > 1) {
+      setCurrentPage((prev) => prev - 1);
     }
   };
-  const last = () => setCount(pagiData.info.pages);
-  const first = () => setCount(pagiData.info.pages - (pagiData.info.pages - 1));
+  const last = () => setCurrentPage(pagiData.info.pages);
+  const first = () => setCurrentPage(pagiData.info.pages - (pagiData.info.pages - 1));
   
   const handlePageOnclick = (e) => {
     console.log("e", e);
-    setCount(e);
+    setCurrentPage(e);
   };
 
 
@@ -64,7 +64,7 @@ export const CharacterApi = ({ searchQuery }) => {
         prev={prev}
         last={last}
         first={first}
-        count={count}
+        currentPage={Number.parseInt(currentPage, 10)}
       />
 
       {spinner ? (
