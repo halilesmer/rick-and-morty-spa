@@ -6,6 +6,11 @@
   align-items: center;
   margin-bottom: 2rem;
   padding: 2.4rem 0 2.4rem 0;
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 4;
 }
 .searchBar {
   display: flex;
@@ -49,6 +54,12 @@ p.banner-title {
   transition-property: width;
   transition-duration: 1s;
 }
+@media screen and (max-width: 1000px) {
+  #searchInput:focus {
+    width: 20rem;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .searchBar {
     margin: auto 1rem auto 1rem;
@@ -67,10 +78,9 @@ p.banner-title {
     height: 1.9rem;
   }
   .searchBannerCon {
-padding: unset;
+    padding: unset;
   }
   #searchInput:focus {
-  width: 20rem;
-
-}
+    width: 20rem;
+  }
 }

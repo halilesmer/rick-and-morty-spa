@@ -1,5 +1,5 @@
 import React from 'react'
-import { InputGroup, FormControl } from "react-bootstrap";
+import { InputGroup, FormControl, Container } from "react-bootstrap";
 
 
 const SearchBanner = ({ searchQuery, onChange}) => {
@@ -7,7 +7,7 @@ const SearchBanner = ({ searchQuery, onChange}) => {
 
 
     return (
-      <div className="searchBannerCon">
+      <Container className="searchBannerCon">
         <div className="searchBar">
           <div className="titelDiv">
             <p className="banner-title">Rick and Morty</p>
@@ -27,7 +27,7 @@ const SearchBanner = ({ searchQuery, onChange}) => {
             />
           </InputGroup>
         </div>
-      </div>
+      </Container>
     );
 }
 
