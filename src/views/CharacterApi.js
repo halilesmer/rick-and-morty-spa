@@ -50,7 +50,6 @@ export const CharacterApi = ({ searchQuery }) => {
   const first = () => setCurrentPage(pagiData.info.pages - (pagiData.info.pages - 1));
   
   const handlePageOnclick = (e) => {
-    console.log("e", e);
     setCurrentPage(e);
   };
 

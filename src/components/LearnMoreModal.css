@@ -16,6 +16,8 @@
   transition-duration: 1s;
   width: fit-content;
   padding: 0.5rem;
+  border: black solid 1px;
+
   border-radius: 8px;
   margin: 1rem auto;
   font-size: x-large;
@@ -23,6 +25,6 @@
 }
 .modalCloseBtn:hover {
   background: #f0f0f08f;
-  border: #f0f0f08f;
+    border: #f0f0f08f solid 1px;
   transition-duration: 0.4s;
 }
