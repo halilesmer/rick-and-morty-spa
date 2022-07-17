@@ -11,13 +11,15 @@ const CardsPagination = ({
   last,
   count,
 }) => {
+  const [pageArray, setPageArray] = useState([]); 
+  
   const totalPages = pagiData && pagiData.info.pages;
-
+  
   const initialWinSize = window.innerWidth;
-  console.log("siz2: ", initialWinSize);
   const [resize, setResize] = useState(initialWinSize);
-
-/* set send to state the window size if changed */
+  const currentPage = parseInt(count);
+  
+  /* set send to state the window size if changed */
   window.addEventListener(
     "resize",
     () => {
@@ -25,77 +27,194 @@ const CardsPagination = ({
       setResize(changedWindowSize);
     },
     false
-  );
+    );
+    
+    console.log("pagiData: ", pagiData);
+
+useEffect(() => {
+    let totPages = parseInt(totalPages);
+    let currentPage = parseInt(count);
+    let pageArr = [];
+    if (totPages > 1) {
+      if (totPages <= 9) {
+        let i = 1;
+        while (i <= totPages) {
+          pageArr.push(i);
+          i++;
+        }
+      } else {
+        if (currentPage <= 5) pageArr = [1, 2, 3, 4, 5, 6, 7, 8, "", totPages];
+        else if (totPages - currentPage <= 4)
+          pageArr = [
+            1,
+            "",
+            totPages - 7,
+            totPages - 6,
+            totPages - 5,
+            totPages - 4,
+            totPages - 3,
+            totPages - 2,
+            totPages - 1,
+            totPages,
+          ];
+        else
+          pageArr = [
+            1,
+            "",
+            currentPage - 3,
+            currentPage - 2,
+            currentPage - 1,
+            currentPage,
+            currentPage + 1,
+            currentPage + 2,
+            currentPage + 3,
+            "",
+            totPages,
+          ];
+      }
+    }
+    setPageArray(pageArr);
+  }, [count]);
+
+
+
+
 
   return (
-    <Pagination size={(resize < 500 ? "sm" : "") || (resize > 1000 && "lg")}>
-      <Pagination.First disabled={count === 1} onClick={first} />
-      <Pagination.Prev disabled={count === 1} onClick={prev} />
-      <Pagination.Item
-        disabled={count < 4}
-        onClick={() =>
-          handlePageOnclick(
-            count < 4 ? "-" : totalPages - (pagiData.info.pages - 1)
-          )
-        }
+
+      <Pagination
+        size={(resize < 500 ? "sm" : "") || (resize > 1000 && "lg")}
       >
-        {count < 4 ? "-" : totalPages - (pagiData.info.pages - 1)}
-      </Pagination.Item>
-      <Pagination.Ellipsis disabled />
+        {pageArray.map((ele, ind) => { 
+          const toReturn = [];
 
-      <Pagination.Item
-        disabled={count <= 2}
-        onClick={() => handlePageOnclick(count >= 3 ? count - 2 : "-")}
-      >
-        {count >= 3 ? count - 2 : "-"}
-      </Pagination.Item>
+          if (ind === 0) {
+            toReturn.push(
+              <Pagination.First
+                key={"firstpage"}
+                onClick={
+                  currentPage === 1
+                    ? () => {}
+                    : () => {
+                        handlePageOnclick(1);
+                      }
+                }
+              />
+            );
 
-      <Pagination.Item
-        onClick={() => handlePageOnclick(count >= 2 ? count - 1 : "-")}
-        disabled={count <= 1}
-      >
-        {count >= 2 ? count - 1 : "-"}
-      </Pagination.Item>
+            toReturn.push(
+              <Pagination.Prev
+                key={"prevpage"}
+                onClick={
+                  currentPage === 1
+                    ? () => {}
+                    : () => {
+                        handlePageOnclick(currentPage - 1);
+                      }
+                }
+              />
+            );
+          }
 
-      <Pagination.Item active={count}>{count}</Pagination.Item>
+          if (ele === "") toReturn.push(<Pagination.Ellipsis key={ind} />);
+          else
+            toReturn.push(
+              <Pagination.Item
+                key={ind}
+                active={currentPage === ele ? true : false}
+                onClick={
+                  currentPage === ele
+                    ? () => {}
+                    : () => {
+                        handlePageOnclick(ele);
+                      }
+                }
+              >
+                {ele}
+              </Pagination.Item>
+            );
 
-      <Pagination.Item
-        disabled={count === totalPages}
-        onClick={() =>
-          handlePageOnclick(count === totalPages ? "-" : count + 1)
-        }
-      >
-        {" "}
-        {count === totalPages ? "-" : count + 1}
-      </Pagination.Item>
+          if (ind === pageArray.length - 1) { 
+            toReturn.push(
+              <Pagination.Next
+                key={"nextpage"}
+                onClick={
+                  currentPage === ele
+                    ? () => {}
+                    : () => {
+                        handlePageOnclick(currentPage + 1);
+                      }
+                }
+              />
+            );
 
-      <Pagination.Item
-        disabled={count === totalPages || count === totalPages - 1}
-        onClick={() =>
-          handlePageOnclick(
-            count === totalPages || count === totalPages - 1 ? "-" : count + 2
-          )
-        }
-      >
-        {" "}
-        {count === totalPages || count === totalPages - 1 ? "-" : count + 2}
-      </Pagination.Item>
+            toReturn.push(
+              <Pagination.Last
+                key={"lastpage"}
+                onClick={
+                  currentPage === ele
+                    ? () => {}
+                    : () => {
+                        handlePageOnclick(ele);
+                      }
+                }
+              />
+            );
+          }
 
-      <Pagination.Ellipsis disabled />
+          return toReturn;
+        })}
+      </Pagination>
 
-      <Pagination.Item
-        disabled={count > totalPages - 3}
-        onClick={() =>
-          handlePageOnclick(count <= totalPages - 3 ? pagiData.info.pages : "-")
-        }
-      >
-        {count <= totalPages - 3 ? pagiData.info.pages : "-"}
-      </Pagination.Item>
-
-      <Pagination.Next disabled={count === totalPages} onClick={next} />
-      <Pagination.Last disabled={count === totalPages} onClick={last} />
-    </Pagination>
   );
 };
 
 export default CardsPagination;
+
+
+
+/* useEffect(() => {
+    let totPages = parseInt(totalPages);
+    let currentPage = parseInt(count);
+    let pageArr = [];
+    if (totPages > 1) {
+      if (totPages <= 9) {
+        let i = 1;
+        while (i <= totPages) {
+          pageArr.push(i);
+          i++;
+        }
+      } else {
+        if (currentPage <= 5) pageArr = [1, 2, 3, 4, 5, 6, 7, 8, "", totPages];
+        else if (totPages - currentPage <= 4)
+          pageArr = [
+            1,
+            "",
+            totPages - 7,
+            totPages - 6,
+            totPages - 5,
+            totPages - 4,
+            totPages - 3,
+            totPages - 2,
+            totPages - 1,
+            totPages,
+          ];
+        else
+          pageArr = [
+            1,
+            "",
+            currentPage - 3,
+            currentPage - 2,
+            currentPage - 1,
+            currentPage,
+            currentPage + 1,
+            currentPage + 2,
+            currentPage + 3,
+            "",
+            totPages,
+          ];
+      }
+    }
+    setPageArray(pageArr);
+  }, [count]);
+   */
