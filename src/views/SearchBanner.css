@@ -52,7 +52,7 @@ p.banner-title {
 #searchInput:focus {
   width: 30rem;
   transition-property: width;
-  transition-duration: 1s;
+  transition-duration: 0.4s;
 }
 @media screen and (max-width: 1000px) {
   #searchInput:focus {
