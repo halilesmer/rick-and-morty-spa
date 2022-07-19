@@ -12,8 +12,7 @@ const CardsPagination = ({
   currentPage,
 }) => {
   const totalPages = pagiData && pagiData.info.pages;
-
-  const [pageArray, setPageArray] = useState([]);
+  const [pageArray, setPageArray] = useState(null);
   const initialWinSize = window.innerWidth;
   const [resize, setResize] = useState(initialWinSize);
 
@@ -69,9 +68,8 @@ const CardsPagination = ({
           ];
       }
     }
-
     setPageArray(pageArr);
-  }, [next, prev, first, last]);
+  }, []);
 
   // console.log("pagiData: ", pagiData);
   // console.log("currentPage: ", currentPage);
